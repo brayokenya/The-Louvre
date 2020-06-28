@@ -67,6 +67,16 @@ class Pic(models.Model):
     def search_by_category(cls,search_term):
         picture = cls.objects.filter(category__cat__icontains=search_term)
         return picture
+        
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = cls.objects.filter(id=id).all()
+        return image
+
+    @classmethod
+    def filter_by_location(cls, location):
+        image_location = Pic.objects.filter(location__name=location).all()
+        return image_location
 
     def __str__(self):
         return self.caption
