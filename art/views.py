@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 import datetime as dt
-from .models import Pic, Category
+from .models import Pic, Category, Location
 
 
 # Create your views here.
@@ -12,7 +12,15 @@ def welcome(request):
 def art_of_day(request):
     date = dt.date.today()
     art = Pic.todays_art()
-    return render(request, 'all-art/today-art.html', {"date": date, "art": art})
+    locations = Location.objects.all()
+    return render(request, 'all-art/today-art.html', {"date": date, "art": art,"locations": locations})
+
+def location(request,location):
+    locations = Location.objects.all()
+    selected_location = Location.objects.get(id = location)
+    art = Pic.objects.filter(location = selected_location.id)
+    return render(request, 'all-art/location.html', {"location":selected_location,"locations":locations,"art":art})    
+
 
 
 def convert_dates(dates):
