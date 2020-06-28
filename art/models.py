@@ -67,8 +67,9 @@ class Pic(models.Model):
     def search_by_category(cls,search_term):
         picture = cls.objects.filter(category__cat__icontains=search_term)
         return picture
+
     def __str__(self):
-        return self.paparazzo
+        return self.caption
 
     class Meta:
         ordering=["-pub_date"]  

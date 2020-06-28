@@ -1,27 +1,43 @@
-{%extends 'all-art/base.html'%} {% block content %} {{block.super}}
+{%extends 'all-art/base.html'%} {% load static %} {% load bootstrap3 %} {% block content %} {{block.super}}
 
-<div class="container">
-
-    <!-- Looping through art   -->
-    {% for art_item in art %}
+<div class="container-fluid">
 
     <div class="row">
-        <!-- displaying Art-->
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <h2 class="text-center"> {{ art_item.category }} </h2>
-            <h2 class="text-center"> {{ art_item.caption }} </h2>
-            <h2 class="text-center"> {{ art_item.paparazzo }} </h2>
-            <h2 class="text-center"> {{ art_item.location}} </h2>
-            <h2 class="text-center"> {{ art_item.category}} </h2>
+        {% for art_item in art %}
+
+        <div class="col-md-3" style="padding: 0.5 px;">
+            <button type="button" data-toggle="modal" data-target="#{{art_item.id}}" class="btn btn-outline-secondary">
+                <img src="{{art_item.photo_image.url}}"  class="img-responsive" alt="" style="width: 1000px; height: 400px;">
+              </button>
+            <div class="modal fade" id="{{art_item.id}}" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <h3 class="text-center"> {{ art_item.category }} </h3>
+                            </h5>
+                        </div>
+                        <div class="modal-body">
+
+                            <img src="{{art_item.photo_image.url}}" class="img-responsive" alt="" style="width: 550px; height: 400px;">
+                            <p style="font-size: 20px; "><b>Caption</b> : {{art_item.caption}}</p>
+                            <p style="font-size: 20px; "><b>Category</b> : {{art_item.category}}</p>
+                            <p style=" font-size: 20px "><b>Location</b>: {{art_item.location}}</p>
+                            <p style=" font-size: 20px "><b>Credits</b>: {{art_item.paparazzo}}</p>
+                            <p style=" font-size: 20px "><b>Photo taken on</b>: {{art_item.pub_date}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
+                            <button type="button " class="btn btn-primary "> Copy Link</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
-        <!--Display news Article images  -->
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{art_item.photo_image.url}}" class="img-responsive" alt="Image">
-        </div>
+        {% endfor %}
+
     </div>
-
-    {% empty %} {% endfor %}
-
-</div>
-{% endblock %}
+</div> {% endblock %}
