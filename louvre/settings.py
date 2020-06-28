@@ -67,10 +67,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# UPLOADCARE = {
-#     'pub_key': config('PUB_KEY'),
-#     'secret': config('SECRET'),
-# }
+UPLOADCARE = {
+    'pub_key': config('PUB_KEY'),
+    'secret': config('SECRET'),
+}
 
 # Application definition
 
