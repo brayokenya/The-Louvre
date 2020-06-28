@@ -3,7 +3,11 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="{% url 'artToday' %}">The Louvre 📸 </a>
         </div>
+        <ul class="nav navbar-nav">
 
+            {% for location in locations %}
+            <a class="btn btn-outline-info btn-sm" id="btn" style="font-size: 12px; font-weight: bold;" onmouseover="this.style.backgroundColor='#ffff'" onmouseout="this.style.backgroundColor='#203a43'" href="{% url 'location' location.id %}">{{location}}</a>{%endfor%}
+        </ul>
         <!-- Adding a search form  -->
         <div class="col-sm-4 col-md-4 navbar-right">
 
