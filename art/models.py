@@ -20,7 +20,6 @@ class Paparazzo(models.Model):
         ordering = ['first_name']
    
 
-
 class tags(models.Model):
     name = models.CharField(max_length =30)
 
@@ -38,9 +37,11 @@ class Category(models.Model):
     def __str__(self):
         return self.cat
 
+        
+
 
 class Pic(models.Model):
-    photo = models.ImageField(upload_to = 'pictures/')
+    photo_image = models.ImageField(upload_to = 'pictures/')
     caption = models.CharField(max_length =60)
     paparazzo = models.ForeignKey(Paparazzo, on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags)
@@ -54,7 +55,7 @@ class Pic(models.Model):
     @classmethod
     def todays_art(cls):
         today = dt.date.today()
-        art = cls.objects.filter(pub_date__date = today)
+        art = cls.objects.all()
         return art
 
     @classmethod
@@ -64,6 +65,10 @@ class Pic(models.Model):
     
     @classmethod
     def search_by_category(cls,search_term):
-        art = cls.objects.filter(category__icontains=search_term)
-        return art
- 
+        picture = cls.objects.filter(category__cat__icontains=search_term)
+        return picture
+    def __str__(self):
+        return self.paparazzo
+
+    class Meta:
+        ordering=["-pub_date"]  

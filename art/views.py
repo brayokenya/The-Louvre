@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 import datetime as dt
-from .models import Pic
+from .models import Pic, Category
 
 
 # Create your views here.
@@ -11,7 +11,8 @@ def welcome(request):
 
 def art_of_day(request):
     date = dt.date.today()
-    return render(request, 'all-art/today-art.html', {"date": date,})
+    art = Pic.todays_art()
+    return render(request, 'all-art/today-art.html', {"date": date, "art": art})
 
 
 def convert_dates(dates):
@@ -33,14 +34,20 @@ def art_today(request):
 
 def search_results(request):
 
-    if 'pic' in request.GET and request.GET["pic"]:
-        search_term = request.GET.get("pic")
+    if 'pics' in request.GET and request.GET["pics"]:
+        search_term = request.GET.get("pics")
         searched_pics = Pic.search_by_category(search_term)
         message = f"{search_term}"
+        category = Category.objects.all()
+        context = {
+            "category":category,
+            "message":message,
+            "pics":searched_pics
+        }
 
-        return render(request, 'all-news/search.html',{"message":message,"pics": searched_pics})
+        return render(request, 'all-art/search.html',{"message":message,"pics": searched_pics, category: "category"})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'all-news/search.html',{"message":message})
+        return render(request, 'all-art/search.html',{"message":message})
 
