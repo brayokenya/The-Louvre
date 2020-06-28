@@ -1,13 +1,26 @@
 {%extends 'all-art/base.html'%} {% load static %} {% load bootstrap3 %} {% block content %} {{block.super}}
+<div class="container-fluid1">
+    <div class="container-full banner content">
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md-12 text-center">
 
-<div class="container-fluid">
+                    <h1 class="text-white text-center intro" style="font-style: oblique;">THIS IS LOUVRE</h1>
+                    <a href="#gallery" class="btn" name="button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" id="gallery">
 
     <div class="row">
         {% for art_item in art %}
 
-        <div class="col-md-3" style="padding: 0.5 px;">
+        <div class="col-md-3" style="padding: 0.9 px;">
             <button type="button" data-toggle="modal" data-target="#{{art_item.id}}" class="btn btn-outline-secondary">
-                <img src="{{art_item.photo_image.url}}"  class="img-responsive" alt="" style="width: 1000px; height: 400px;">
+                <img src="{{art_item.photo_image.url}}"  class="img-responsive" alt="" style="width: 800px; height: 400px;">
               </button>
             <div class="modal fade" id="{{art_item.id}}" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
@@ -20,7 +33,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <img src="{{art_item.photo_image.url}}" class="img-responsive" alt="" style="width: 550px; height: 400px;">
+                            <img src="{{art_item.photo_image.url}}" class="img-responsive" alt="" style="width: 600px; height: 500px;">
                             <p style="font-size: 20px; "><b>Caption</b> : {{art_item.caption}}</p>
                             <p style="font-size: 20px; "><b>Category</b> : {{art_item.category}}</p>
                             <p style=" font-size: 20px "><b>Location</b>: {{art_item.location}}</p>
@@ -28,8 +41,10 @@
                             <p style=" font-size: 20px "><b>Photo taken on</b>: {{art_item.pub_date}}</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
-                            <button type="button " class="btn btn-primary "> Copy Link</button>
+                            <input class="form-control input-lg" type="text" value="{{art_item.photo_image.url}}" id="{{image.id}}.url">
+                            <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy Link</button>
+                            <button type="btn btn-primary" style="background-color: rgb(235, 36, 36);" class="btn btn-secondary " data-dismiss="modal">Close</button>
+
                         </div>
                     </div>
                 </div>
