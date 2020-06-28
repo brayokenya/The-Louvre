@@ -15,7 +15,9 @@
     {% include "navbar.html" %} {% block content %}
     <h1 class='text-center'> </h1> {%endblock%} {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="icon" href="static/img/icon.jpeg"> {% bootstrap_javascript %} {% endblock %}
+    <link rel="icon" href="static/img/icon.jpeg">
+    <script src="{% static '/js/scripts.js'%}"></script>
+    {% bootstrap_javascript %} {% endblock %}
 </body>
 
 </html>
