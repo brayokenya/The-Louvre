@@ -15,9 +15,9 @@
         {% if pics %} {% for pic in pics %}
         <div class="col-sm-6 col-md-3">
             <h1>{{pic.category}}</h1>
-            <h1>{{pic.pub_date}}</h1>
-            <h1>{{pic.location}}</h1>
-            <h1>{{pic.paparazzo}}</h1>
+            <h3>{{pic.pub_date}}</h3>
+            <h3>{{pic.location}}</h3>
+            <h3>{{pic.paparazzo}}</h3>
             <img src="{{pic.photo_image.url}}" class="img-responsive" alt="Image Loading">
 
         </div>

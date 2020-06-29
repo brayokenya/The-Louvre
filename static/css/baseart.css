@@ -2,8 +2,12 @@ h1 {
     color: rgb(255, 255, 255);
 }
 
+h3 {
+    color: rgb(255, 255, 255);
+}
+
 .modal-title {
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
 }
 
 body {
@@ -25,6 +29,12 @@ body {
     padding: 250px;
 }
 
+#gallery {
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-family: "YouTube Noto", Roboto, Arial, Helvetica
+}
+
 #mouse {
     animation: bounce 3s infinite;
 }
@@ -43,4 +53,106 @@ body {
     40% {
         transform: translateY(-35px);
     }
+}
+
+
+/* sourced */
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fredoka+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    height: 100%;
+}
+
+.home-page .card {
+    border: 1px solid rgb(37, 135, 228);
+    padding: 1em;
+    height: 100%;
+}
+
+.home-page .card img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.home-page h2 {
+    font-weight: bolder;
+}
+
+.cards {
+    margin-bottom: 2em;
+}
+
+.photo-page .card {
+    border: 2px solid rgb(150, 22, 128);
+    padding: 1em;
+}
+
+.photo-page .card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.jumbo-photo {
+    padding-top: 6em;
+    background-color: rgb(86, 192, 183);
+}
+
+.jumbo-txt {
+    background-color: rgb(214, 233, 231);
+}
+
+.jumbo-txt p {
+    font-size: medium;
+}
+
+.offscreen {
+    position: absolute;
+    left: -999em;
+}
+
+.alert {
+    background-color: rgb(164, 192, 192);
+    color: rgb(6, 41, 33);
+}
+
+.modal {
+    text-align: center;
+}
+
+.modal-body p {
+    font-size: medium;
+}
+
+.modal-body img {
+    height: auto !important;
+}
+
+@media screen and (min-width: 768px) {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-xlg {
+    width: 70%;
+}
+
+.card a:hover {
+    cursor: pointer;
 }
