@@ -1,5 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/3f1a8631434131e16bd7/maintainability)](https://codeclimate.com/github/brayokenya/Scribble/maintainability)
-
+[![codebeat badge](https://codebeat.co/badges/2f22dde0-4150-4a21-ab3d-67929126072c)](https://codebeat.co/projects/github-com-brayokenya-the-louvre-master)
 # Louvre
 Louvre is an application that allows users to create  blogs. The users will submit their  blogs and other users will vote on them and leave comments to give their feedback on them.
 
