@@ -10,7 +10,8 @@ h3 {
     background-color: rgb(255, 255, 255);
 }
 
-body {
+body,
+.jumbotron {
     margin: 0;
     padding: 0;
     width: 100vw;
